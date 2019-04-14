@@ -26,7 +26,7 @@ import com.biblioteca.repository.CategoriaRepository;
 @RequestMapping(value = "/categorias")
 @CrossOrigin(origins = "http://localhost")
 public class CategoriaResource {
-
+ 
 	@Autowired
 	private CategoriaRepository repository;
 

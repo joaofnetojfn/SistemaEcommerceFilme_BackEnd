@@ -19,13 +19,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.biblioteca.model.Livro;
-import com.biblioteca.repository.LivroRepository;
+import com.biblioteca.model.Filme;
+import com.biblioteca.repository.FilmeRepository;
 
 @RestController
 @RequestMapping(value = "/filmes")
 @CrossOrigin(origins = "http://localhost")
-public class LivroResource {
+public class FilmeResource {
 
 	@Autowired
 	private FilmeRepository repository;

@@ -9,8 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.biblioteca.model.Categoria;
 import com.biblioteca.model.Editora;
+import com.biblioteca.model.Cliente;
 import com.biblioteca.repository.CategoriaRepository;
 import com.biblioteca.repository.EditoraRepository;
+import com.biblioteca.repository.ClienteRepository;
 
 @SpringBootApplication
 public class SistemaEcommerceServerApplication implements CommandLineRunner {
@@ -19,6 +21,8 @@ public class SistemaEcommerceServerApplication implements CommandLineRunner {
 	private CategoriaRepository repoCategoria;
 	@Autowired
 	private EditoraRepository repoEditora;
+	@Autowired
+	private ClienteRepository repoCliente;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SistemaEcommerceServerApplication.class, args);
@@ -26,10 +30,14 @@ public class SistemaEcommerceServerApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		
+		Cliente cli1 = new Cliente(null, "nome", "cargo", "endereco", "cidade", "cep", "pais", "telefone", "fax");
+		this.repoCliente.save(cli1);
+		
 
-		Categoria cat1 = new Categoria("Ação");
+		Categoria cat1 = new Categoria("Aï¿½ï¿½o");
 		Categoria cat2 = new Categoria("Aventura");
-		Categoria cat3 = new Categoria("Comédia");
+		Categoria cat3 = new Categoria("Comï¿½dia");
 		Categoria cat4 = new Categoria("Cinema e Arte");
 		Categoria cat5 = new Categoria("Terror");
 		this.repoCategoria.saveAll(Arrays.asList(cat1,cat2,cat3,cat4,cat5));

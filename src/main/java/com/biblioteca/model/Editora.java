@@ -18,11 +18,31 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class Editora implements Serializable {
+	public int getIdEditora() {
+		return idEditora;
+	}
+
+	public void setIdEditora(int idEditora) {
+		this.idEditora = idEditora;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public List<Filme> getFilmes() {
+		return filmes;
+	}
+
+	public void setFilmes(List<Filme> filmes) {
+		this.filmes = filmes;
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
