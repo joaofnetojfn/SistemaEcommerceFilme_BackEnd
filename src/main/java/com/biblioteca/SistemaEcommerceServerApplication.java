@@ -32,7 +32,9 @@ public class SistemaEcommerceServerApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		
 		Cliente cli1 = new Cliente(null, "nome", "cargo", "endereco", "cidade", "cep", "pais", "telefone", "fax");
+		Cliente cli2 = new Cliente(null, "nome1", "cargo1", "endereco1", "cidade1", "cep1", "pais1", "telefone1", "fax1");
 		this.repoCliente.save(cli1);
+		this.repoCliente.save(cli2);
 		
 
 		Categoria cat1 = new Categoria("A��o");
