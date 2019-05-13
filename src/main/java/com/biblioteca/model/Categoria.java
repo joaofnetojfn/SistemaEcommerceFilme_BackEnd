@@ -19,11 +19,34 @@ import lombok.NoArgsConstructor;
 
 @Entity
 public class Categoria implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int idCategoria;
+	
+	private String descricao;
+	
+	public Categoria() {
+		super();
+	}
+	public Categoria(String descricao) {
+		super();
+		this.descricao = descricao;
+	}
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="categoria")
+	private List<Filme> filmes = new ArrayList<>();
+	
+	
+	//get e set
 	public int getIdCategoria() {
 		return idCategoria;
 	}
 
-	public void setIdCategoria(int idCategoria) {
+	public void setIdCategoria(Integer idCategoria) {
 		this.idCategoria = idCategoria;
 	}
 
@@ -32,21 +55,6 @@ public class Categoria implements Serializable {
 	}
 
 	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idCategoria;
-	private String descricao;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy="categoria")
-	private List<Filme> filmes = new ArrayList<>();
-
-	public Categoria(String descricao) {
 		this.descricao = descricao;
 	}
 

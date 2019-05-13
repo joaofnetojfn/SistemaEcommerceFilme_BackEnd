@@ -15,6 +15,38 @@ import lombok.NoArgsConstructor;
 
 @Entity
 public class Filme implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer codigo;
+
+	private String titulo;
+	private String autor;
+
+	@ManyToOne
+	@JoinColumn(name = "categoria_id")
+	private Categoria categoria;
+
+	@ManyToOne
+	@JoinColumn(name = "editora_id")
+	private Editora editora;
+
+	
+	public Filme() {
+		super();
+	}
+	
+	public Filme(String titulo, String autor, Categoria categoria, Editora editora) {
+		super();
+		this.titulo = titulo;
+		this.autor = autor;
+		this.categoria = categoria;
+		this.editora = editora;
+	}
+	
+	//get e set
 
 	public Integer getCodigo() {
 		return codigo;
@@ -56,30 +88,6 @@ public class Filme implements Serializable {
 		this.editora = editora;
 	}
 
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer codigo;
-
-	private String titulo;
-	private String autor;
-
-	@ManyToOne
-	@JoinColumn(name = "categoria_id")
-	private Categoria categoria;
-
-	@ManyToOne
-	@JoinColumn(name = "editora_id")
-	private Editora editora;
-
-	public Filme(Integer codigo, String titulo, String autor, Categoria categoria, Editora editora) {
-		super();
-		this.codigo = codigo;
-		this.titulo = titulo;
-		this.autor = autor;
-		this.categoria = categoria;
-		this.editora = editora;
-	}
+	
 
 }

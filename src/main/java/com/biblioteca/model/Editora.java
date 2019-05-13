@@ -19,6 +19,32 @@ import lombok.NoArgsConstructor;
 
 @Entity
 public class Editora implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int idEditora;
+	
+	private String nome;
+	
+	public Editora() {
+		super();
+	}
+
+	
+	public Editora(String nome) {
+		super();
+		this.nome = nome;
+	}
+	
+
+	@JsonIgnore
+	@OneToMany(mappedBy="editora")
+	private List<Filme> filmes = new ArrayList<>();
+
+
+	//get e set
 	public int getIdEditora() {
 		return idEditora;
 	}
@@ -43,19 +69,6 @@ public class Editora implements Serializable {
 		this.filmes = filmes;
 	}
 
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idEditora;
-	private String nome;
 	
-	@JsonIgnore
-	@OneToMany(mappedBy="editora")
-	private List<Filme> filmes = new ArrayList<>();
-
-	public Editora(String nome) {
-		this.nome = nome;
-	}
 	
 }

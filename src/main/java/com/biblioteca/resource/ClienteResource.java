@@ -24,7 +24,7 @@ import com.biblioteca.repository.ClienteRepository;
 
 @RestController
 @RequestMapping(value = "/clientes")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "${porta.angular}")
 public class ClienteResource {
 
 	@Autowired

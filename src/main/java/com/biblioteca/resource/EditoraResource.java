@@ -24,7 +24,7 @@ import com.biblioteca.repository.EditoraRepository;
 
 @RestController
 @RequestMapping(value = "/editoras")
-@CrossOrigin(origins = "http://localhost")
+@CrossOrigin(origins = "${porta.angular}")
 public class EditoraResource {
 
 	@Autowired

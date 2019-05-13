@@ -24,7 +24,7 @@ import com.biblioteca.repository.FilmeRepository;
 
 @RestController
 @RequestMapping(value = "/filmes")
-@CrossOrigin(origins = "http://localhost")
+@CrossOrigin(origins = "http://localhost:4200")
 public class FilmeResource {
 
 	@Autowired
