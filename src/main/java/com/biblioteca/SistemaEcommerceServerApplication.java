@@ -11,10 +11,12 @@ import com.biblioteca.model.Categoria;
 import com.biblioteca.model.Cliente;
 import com.biblioteca.model.Editora;
 import com.biblioteca.model.Filme;
+import com.biblioteca.model.Login;
 import com.biblioteca.repository.CategoriaRepository;
 import com.biblioteca.repository.ClienteRepository;
 import com.biblioteca.repository.EditoraRepository;
 import com.biblioteca.repository.FilmeRepository;
+import com.biblioteca.repository.LoginRepository;
 
 @SpringBootApplication
 public class SistemaEcommerceServerApplication implements CommandLineRunner {
@@ -27,6 +29,8 @@ public class SistemaEcommerceServerApplication implements CommandLineRunner {
 	private ClienteRepository repoCliente;
 	@Autowired
 	private FilmeRepository repoFilme;
+	@Autowired
+	private LoginRepository repoLogin;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SistemaEcommerceServerApplication.class, args);
@@ -34,6 +38,8 @@ public class SistemaEcommerceServerApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		
+		
 		
 		Cliente cli1 = new Cliente(null, "nome", "cargo", "endereco", "cidade", "cep", "pais", "telefone", "fax");
 		Cliente cli2 = new Cliente(null, "nome1", "cargo1", "endereco1", "cidade1", "cep1", "pais1", "telefone1", "fax1");
@@ -59,7 +65,14 @@ public class SistemaEcommerceServerApplication implements CommandLineRunner {
 		Filme filme1 = new Filme("Tomates assasino", "Tomates", cat4, edit1);
 		Filme filme2 = new Filme("Os Vingadores", "não sei", cat2, edit5);
 		this.repoFilme.saveAll(Arrays.asList(filme1,filme2));
-
+		
+		Login logi= new Login("user@email.com", "123456", "");
+		this.repoLogin.save(logi);
+		Login logi1= new Login("mad@email.com", "123456", "");
+		this.repoLogin.save(logi1);
+		Login logi2= new Login("carlos@email.com", "mudar123", "");
+		this.repoLogin.save(logi2);
+		
 	}
 
 }
